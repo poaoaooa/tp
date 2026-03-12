@@ -8,7 +8,6 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -40,6 +39,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         sortedPersons = new SortedList<>(filteredPersons);
+
     }
 
     public ModelManager() {
@@ -122,9 +122,9 @@ public class ModelManager implements Model {
      * {@code versionedAddressBook}
      */
     @Override
-    public void updateSortedPersonList(Comparator<Person> comparator) {
+    public void updateSortedPersonList(Comparator<Person> comparator, Predicate<Person> predicate) {
         requireNonNull(comparator);
-
+        filteredPersons.setPredicate(predicate);
         sortedPersons.setComparator(comparator);
     }
 

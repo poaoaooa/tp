@@ -20,7 +20,7 @@ import seedu.address.model.person.WeeklyAttendanceList;
  */
 public class UpdateAttendanceCommand extends Command {
 
-    public static final String COMMAND_WORD = "markattendance";
+    public static final String COMMAND_WORD = "updateattendance";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Updates attendance of a student.\n"
             + "Parameters: INDEX (positive integer) "
